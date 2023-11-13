@@ -1,12 +1,12 @@
-#include "shell.h"
+i#include "shell.h"
 
 
 /**
  * _myhistory - displays the history list, one command by line, preceded
- *              with line numbers, starting at 0.
+ *	with line numbers, starting at 0.
  * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ *	constant function prototype.
+ * Return: Always 0
  */
 
 int _myhistory(info_t *info)
@@ -24,17 +24,17 @@ int _myhistory(info_t *info)
 
 int unset_alias(info_t *info, char *str)
 {
-	char *p, c;
+	char *p, l;
 	int ret;
 
 	p = _strchr(str, '=');
 	if (!p)
 	return (1);
-	c = *p;
+	l = *p;
 	*p = 0;
 	ret = delete_node_at_index(&(info->alias),
-		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
-	*p = c;
+	get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
+	*p = l;
 	return (ret);
 }
 
@@ -91,7 +91,7 @@ int print_alias(list_t *node)
 
 int _myalias(info_t *info)
 {
-	int i = 0;
+	int a = 0;
 	char *p = NULL;
 	list_t *node = NULL;
 
@@ -105,13 +105,13 @@ int _myalias(info_t *info)
 	}
 	return (0);
 	}
-	for (i = 1; info->argv[i]; i++)
+	for (a = 1; info->argv[a]; a++)
 	{
-	p = _strchr(info->argv[i], '=');
+	p = _strchr(info->argv[a], '=');
 	if (p)
-	set_alias(info, info->argv[i]);
+	set_alias(info, info->argv[a]);
 	else
-	print_alias(node_starts_with(info->alias, info->argv[i], '='));
+	print_alias(node_starts_with(info->alias, info->argv[a], '='));
 	}
 	return (0);
 }
