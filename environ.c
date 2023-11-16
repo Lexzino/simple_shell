@@ -29,12 +29,12 @@ char *_getenv(info_t *info, const char *name)
 	while (node)
 	{
 	p = starts_with(node->str, name);
-	
+
 	if (p && *p)
 	return (p);
 	node = node->next;
 	}
-	
+
 	return (NULL);
 }
 
@@ -53,10 +53,10 @@ int _mysetenv(info_t *info)
 	_eputs("Incorrect number of arguements\n");
 	return (1);
 	}
-	
+
 	if (_setenv(info, info->argv[1], info->argv[2]))
 	return (0);
-	
+
 	return (1);
 }
 

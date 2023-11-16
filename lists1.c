@@ -35,17 +35,17 @@ char **list_to_strings(list_t *head)
 	if (!head || !a)
 	return (NULL);
 	strs = malloc(sizeof(char *) * (a + 1));
-	
+
 	if (!strs)
 	return (NULL);
-	
+
 	for (a = 0; node; node = node->next, a++)
 	{
 	str = malloc(_strlen(node->str) + 1);
-	
+
 	if (!str)
 	{
-	
+
 	for (b = 0; b < a; b++)
 	free(strs[b]);
 	free(strs);
@@ -55,7 +55,7 @@ char **list_to_strings(list_t *head)
 	strs[a] = str;
 	}
 	strs[a] = NULL;
-	
+
 	return (strs);
 }
 
